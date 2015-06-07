@@ -1,0 +1,30 @@
+{
+  "name": "gitinbrowser",
+  "version": "1.0.0",
+  "description": "Running git commands using a request to the server and seeing the response in the browser.",
+  "main": "index.js",
+  "bin": {
+    "gitb": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Prashanth-Nelli/gitinbrowser.git"
+  },
+  "keywords": [
+    "git",
+    "browser",
+    "git in browser"
+  ],
+  "author": "Nelli.Prashanth kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Prashanth-Nelli/gitinbrowser/issues"
+  },
+  "dependencies": {
+    "express": "~4.12.4",
+    "chalk": "~1.0.0"
+  }
+}

@@ -13,10 +13,8 @@ app.get('/git/:command',function(req,res){
 
 	var flag = req.query.flag?req.query.flag:'';
 	var command = 'git ' + req.params.command +' '+flag;
-	
 	console.info(chalk.blue('\n'+command+"\tCommand is going to run"));
-
-
+	
 	var gitcommand = spawn(command,{
 		cwd:process.pwd,
 		env:process.env

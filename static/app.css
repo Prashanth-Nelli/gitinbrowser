@@ -2,7 +2,7 @@ pre {
     display: block;
     font-family: monospace;
     white-space: pre;
-    margin: 1em 0;
+    margin:20px;
 }
 
 .status{
@@ -15,4 +15,17 @@ pre {
 
 .diff{
 	color:green;
+}
+
+.pull-right{
+	float: right;
+}
+
+.output_box{
+	height: 500px;
+}
+
+body{
+	padding-left: 1.0%;
+	padding-right: 1.0%;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="gitinbrowser">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +10,10 @@
         <link rel="stylesheet" type="text/css" href="./app.css">
         <script src="jquerymin.js"></script>
         <script src="angular.min.js"></script>
+        <script src="app.js"></script>
         <script src="semantic.min.js"></script>
     </head>
-    <body class="sixteen wide column">
+    <body class="sixteen wide column" ng-controller="appCtrl">
         <div class="ui secondary pointing menu">
           <a class="active item">
             <i class="home icon"></i> Home
@@ -26,7 +27,7 @@
           <div class="right menu">
             <div class="item">
               <div class="ui transparent icon input">
-                <input type="text" placeholder="Search Git Commands">
+                <input type="text" placeholder="Search Git Commands" ng-model="commandSearch">
                 <i class="search link icon"></i>
               </div>
             </div>
@@ -38,14 +39,14 @@
                     <div class="ui form segment">
                         <div class="field">
                             <label>Git Command</label>
-                            <textarea></textarea>
+                            <textarea ng-model="command"></textarea>
                         </div>
-                        <button class="ui small pink button pull-right">Run It</button>
+                        <button class="ui small pink button pull-right" ng-click="execute()">Run It</button>
                     </div>
                 </div>
                 <div class="eight wide column">
                     <div class="ui form segment output_box">
-                        
+                        <textarea style="height:800px;" ng-bind-html="output" ng-disabled="true"></textarea>
                     </div>
                 </div>
             </div>

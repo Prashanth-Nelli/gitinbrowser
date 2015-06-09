@@ -2,16 +2,15 @@
 
 var express    = require('express');
 var chalk	   = require('chalk');
-var bodyparser = require('body-parser');
-
+var bodyParser = require('body-parser');
 var spawn      = require('child_process').exec;
-var helper     = require('./static/helper.json');
 var app		   = express();
 var port       = 3000;
 
 app.use(express.static(__dirname+'/static'));
-app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({extend:true}));
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 app.get('/git/:command',function(req,res){
 
@@ -23,7 +22,6 @@ app.get('/git/:command',function(req,res){
 });
 
 app.post('/git',function(req,res){
-	console.log(req.body);
 	handler(req.body.command,req,res);
 });
 
@@ -35,20 +33,16 @@ function handler(command,req,res){
 	});
 
 	res.setHeader("Content-Type", "text/html");
-	// res.write(helper.prefix.replace(/%title%/,command).replace(/%pre%/,req.params.command));
 
 	gitcommand.stdout.on('data',function(data){
-		console.log(data);
 		res.write(data);
 	});
 
 	gitcommand.stderr.on('data',function(data){
-		console.log(data);
 		res.write(data);
 	});
 
 	gitcommand.on('close',function(code){
-		// res.end(helper.suffix);
 		res.end('');
 		console.log(chalk.green('\n'+command+"\tCommand execution ended with the following code "+code));
 	});

@@ -1,5 +1,0 @@
-{
-
-	"prefix":"<!doctype html><html lang='en'><head><title>%title%</title><link rel='stylesheet' href='../app.css'></head><body><pre class='%pre%'>",
-	"suffix":"</pre></body></html>"
-}
